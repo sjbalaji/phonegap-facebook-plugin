@@ -25,6 +25,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.AppEventsLogger;
 import com.facebook.FacebookDialogException;
 import com.facebook.FacebookException;
@@ -75,7 +77,7 @@ public class ConnectPlugin extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         //Initialize UiLifecycleHelper
         uiHelper = new UiLifecycleHelper(cordova.getActivity(), null);
-
+		FacebookSdk.sdkInitialize(cordova.getActivity().getApplicationContext());
         // Init logger
         logger = AppEventsLogger.newLogger(cordova.getActivity());
 
